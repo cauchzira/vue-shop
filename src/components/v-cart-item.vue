@@ -60,7 +60,7 @@ export default {
             border-radius: $radius;
             transition: .45s ease;
             &:hover {
-                background-color: #f13017;
+                background-color: #f14a34;
                 font-size: 16px;
 
             }
