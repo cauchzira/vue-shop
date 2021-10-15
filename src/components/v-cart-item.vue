@@ -7,7 +7,12 @@
             <p>{{cart_item_data.article}}</p>
         </div>
         <div class="v-cart-item__quantity">
-            <p>Кол-во: {{cart_item_data.quantity}}</p>
+            <p>Кол-во:</p>
+            <span class="v-cart__btn__wrapp">
+                <button class="quantity__btn btn__plus" @click="incrementItem">+</button>
+                {{cart_item_data.quantity}}
+                <button class="quantity__btn btn__minus" @click="decrementItem">-</button>
+            </span>
         </div>
         <button class="v-cart-item__del_btn" @click="deleteFromCart">Удалить</button>
     </div>
@@ -29,6 +34,14 @@ export default {
     data:() => ({}),
     computed: {},
     methods: {
+        decrementItem() {
+            this.$emit('decrement');
+        },
+
+        incrementItem() {
+            this.$emit('increment');
+        },
+
         deleteFromCart() {
             this.$emit('deleteFromCart')
         },
@@ -65,5 +78,41 @@ export default {
 
             }
         }
+
+        .v-cart__btn__wrapp {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity__btn {
+            text-align: center;
+            cursor: pointer;
+            margin: $margin;
+            width: 30px;
+        }
+
+        .btn__plus { 
+            border: 1px solid #000;
+            color: #fff;
+            background-color: #464646;
+            border-radius: $radius;
+            transition: .45s ease;
+            &:hover {
+                background-color: #26ae68;
+            }
+        }
+
+        .btn__minus { 
+            border: 1px solid #000;
+            color: #fff;
+            background-color: #464646;
+            border-radius: $radius;
+            transition: .45s ease;
+            &:hover {
+                background-color: #f14a34;
+            }
+        }
+
+
     }
 </style>

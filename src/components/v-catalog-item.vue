@@ -20,7 +20,7 @@ export default {
         product_data : {
             type: Object,
             default:() => {
-                return
+                return {}
             }
         }
     },
@@ -50,7 +50,7 @@ export default {
             color: #fff;
             background-color: #000000;
             border: 1px solid #acacac;
-            border-radius: $radius*4;
+            border-radius: $radius*2;
             padding: $padding;
             transition: .45s ease;
             font-size: 16px;
